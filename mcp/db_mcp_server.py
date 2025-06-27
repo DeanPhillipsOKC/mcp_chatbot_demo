@@ -30,11 +30,7 @@ def list_tables() -> str:
         _check_service_user()
     except PermissionError:
         return "This feature is not allowed for employee self service users. If you believe you should have access, please contact your administrator."
-    return """CLNT: Used to get information about a client such as their identifying code, name, etc.
-              CLNTINVOICE: Used to get the invoices for a client.
-              CLNTINVOICEBILLINGITEM: Used to get the billing items for a client invoice.
-              SYSBILLINGITEM: Used to get info about billing items such as the name and description.
-              PROCESSING_QUEUE_DURATIONS: Used to get the durations of processing queues for various payrolls."""
+    return """TABLE1: Description as to what it might be used for."""
 
 @mcp.tool()
 def describe_table(table: str) -> str:
@@ -43,35 +39,9 @@ def describe_table(table: str) -> str:
         _check_service_user()
     except PermissionError:
         return "This feature is not allowed for employee self service users. If you believe you should have access, please contact your administrator."
-    if table.upper() == "CLNT":
+    if table.upper() == "TABLE1":
         return """CLNT Table:
-        - CLNT_ID (NUMBER): The ID of the client (primary key)
-        - CLNTCODE (VARCHAR2): The code of the client that is typically used to identify them by humans.  This is the most common way to refer to a client.
-        - CLNTNAME (VARCHAR2): The name of the client (usually the company name)"""
-    elif table.upper() == "CLNTINVOICE":
-        return """CLNTINVOICE Table:
-        - INVOICE_ID (NUMBER): The ID of the invoice (primary key)
-        - CLNT_ID (NUMBER): The ID of the client associated with the invoice (foreign key to CLNT)
-        - INVOICE_DATE (DATE): The date the invoice was created"""
-    elif table.upper() == "CLNTINVOICEBILLINGITEM":
-        return """CLNTINVOICEBILLINGITEM Table:
-        - BILLING_ITEM_ID (NUMBER): The ID of the billing item (primary key)
-        - INVOICE_ID (NUMBER): The ID of the invoice associated with the billing item (foreign key to CLNTINVOICE)
-        - FLATAMOUNT (NUMBER): The amount for the billing item if it is a flat fee
-        - PERUNITAMOUNT (NUMBER): The amount per unit for the billing item if it is charged per unit
-        - ITEMCOUNT (NUMBER): The quantity of units for the billing item if it is charged"""
-    elif table.upper() == "SYSBILLINGITEM":
-        return """SYSBILLINGITEM Table:
-        - BILLING_ITEM_ID (NUMBER): The ID of the billing item (primary key)
-        - BILLINGITEMTITLE (VARCHAR2): The name of the billing item"""
-    elif table.upper() == "PROCESSING_QUEUE_DURATIONS":
-        return """PROCESSING_QUEUE_DURATIONS Table:
-        - CLNTCODE (VARCHAR2): The code of the client that is typically used to identify them by humans.  This is the most common way to refer to a client.
-        - CLNTNAME (VARCHAR2): The name of the client (usually the company name)
-        - RUNNUMBER (NUMBER): The run number of the payroll. This will tell you which payroll this is for.
-        - BEGINDATETIME (DATETIME): The time the payroll started processing.
-        - ENDDATETIME (DATETIME): The time the payroll finished processing.
-        - DURATION_IN_S (NUMBER): The duration of the payroll processing in seconds."""
+        - ID (NUMBER): The ID (primary key)"""
     return f"Table {table} not found."
 
 @mcp.tool()

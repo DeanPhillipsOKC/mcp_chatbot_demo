@@ -1,4 +1,4 @@
-# Detroit MCP POC
+# MCP Chatbot Demo
 
 This repository is a proof of concept for a payroll-related chatbot application built using Streamlit. The chatbot interacts with users to answer payroll-related questions and integrates with Azure OpenAI services.
 
