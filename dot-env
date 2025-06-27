@@ -1,0 +1,6 @@
+DB_DSN=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=10.23.18.4)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SID=PYRLDEV)))
+DB_USER=<oracle database username>
+DB_PASS=<oracle database password>
+OPENAI_MODEL=gpt-4o
+AZURE_OPENAI_ENDPOINT=https://azure-openai-poc2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2025-01-01-preview
+AZURE_OPENAI_KEY=<azure openai services API key>

@@ -1,0 +1,18 @@
+[project]
+name = "detroit-mcp-poc"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115.13",
+    "fastmcp>=2.8.1",
+    "openai-agents[mcp]>=0.0.19",
+    "openai-agents-mcp>=0.0.8",
+    "oracledb>=3.1.1",
+    "python-dotenv>=1.1.0",
+    "streamlit>=1.46.0",
+    "nest-asyncio>=1.6.0",
+    "matplotlib>=3.10.3",
+    "plotly>=6.1.2",
+]
